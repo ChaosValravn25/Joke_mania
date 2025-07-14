@@ -6,16 +6,24 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Sobre la app")),
-      body: const Center(
-        child: Text(
-          "Aplicación hecha en Flutter para Proyecto Opcional. Joke Mania una aplicacion de chistes de una gran variedad\nAutor: Ivonne Santander Soto",//colocar el nombre del desarrollador
-          textAlign: TextAlign.center,
+      appBar: AppBar(title: const Text('Acerca de')),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text('JokeNinja', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            SizedBox(height: 10),
+            Text('Versión 1.0.0'),
+            SizedBox(height: 10),
+            Text('Desarrollado por Ivonne Santander Soto'),
+            SizedBox(height: 20),
+            Text('Recursos:'),
+            Text('- https://v2.jokeapi.dev/'),
+            Text('- Flutter + Material 3'),
+            Text('- share_plus, http, shared_preferences'),
+          ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pop(context),//un pequeño boton 
-        child: const Icon(Icons.arrow_back),
       ),
     );
   }
