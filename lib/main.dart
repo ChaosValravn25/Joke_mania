@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'pages/home_page.dart'; // ¡Esto es clave! para llamar a home_page
+import 'screens/home_page.dart'; // ¡Esto es clave! para llamar a home_page
 
 void main() {
   var logger = Logger();
@@ -12,15 +12,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Contador Mejorado en Flutter',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        fontFamily: 'Lato',
-      ),
-      home: const MyHomePage(title: 'Contador Mejorado'), // usa el nuevo widget
+      title: 'JokeNinja',
+      theme: AppTheme.lightTheme,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomePage(),
+        '/settings': (context) => SettingsPage(),
+        '/about': (context) => AboutPage(),
+      },
     );
   }
 }
