@@ -19,7 +19,23 @@
 ## Estructura de archivos
 
 
-lib/ ├── main.dart ├── screens/ │   ├── home_page.dart │   ├── settings_page.dart │   ├── about.dart ├── services/ │   ├── joke_service.dart │   └── preferences_service.dart ├── models/ │   └── joke.dart ├── widgets/ │   └── joke_card.dart ├── theme/ │   └── app_theme.dart
-
+joker_mania/
+├── lib/
+│   ├── main.dart
+│   ├── screens/
+│   │   ├── home_page.dart
+│   │   ├── settings_page.dart
+│   │   ├── about_page.dart
+│   ├── services/
+│   │   ├── joke_service.dart
+│   │   └── preferences_service.dart
+│   ├── models/
+│   │   └── joke.dart
+│   ├── widgets/
+│   │   └── joke_card.dart
+│   └── theme/
+│       └── app_theme.dart
+├── pubspec.yaml
+├── README.md
 
 
