@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
-import '.../services/joke_service.dart';
+import '../services/joke_service.dart';
 import 'about.dart';
 import 'settings_page.dart';
 
