@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'screens/home_page.dart'; // ¡Esto es clave! para llamar a home_page
-import 'theme/app_theme.dart';
-import 'screens/about.dart';
-import 'screens/settings_page.dart';
+import 'theme/app_theme.dart';// llamar theme
+import 'screens/about.dart';// llamar about
+import 'screens/settings_page.dart';// llamar settings_page
 void main() {
   var logger = Logger();
   logger.d("Logger iniciado correctamente");
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
    @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'JokeNinja',
+      title: 'Joke Mania',
       theme: AppTheme.lightTheme,
       initialRoute: '/',
       routes: {

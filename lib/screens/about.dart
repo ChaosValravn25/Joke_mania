@@ -12,7 +12,7 @@ class About extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
-            Text('JokeNinja', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            Text('Joke Mania', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             SizedBox(height: 10),
             Text('Versión 1.0.0'),
             SizedBox(height: 10),

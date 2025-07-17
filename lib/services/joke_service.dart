@@ -7,7 +7,7 @@ class JokeService {
 
   Future<String> fetchJoke() async {
     final category = await _prefs.getCategory() ?? 'Any';
-    final url = Uri.parse("https://v2.jokeapi.dev/joke/$category?type=single");
+    final url = Uri.parse("https://v2.jokeapi.dev/joke/$category?type=single&lang=es");
 
     final response = await http.get(url);
 
