@@ -20,6 +20,11 @@
 
 
 joker_mania/
+├── assets/
+│   ├── fonts
+│   │   ├── Lato-Regulat.ttf
+│   ├── icons
+│   │   ├── joke.png
 ├── lib/
 │   ├── main.dart
 │   ├── screens/
