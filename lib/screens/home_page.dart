@@ -9,13 +9,15 @@ class HomePage extends StatefulWidget {
 
   @override
   State<HomePage> createState() => _HomePageState();
+
+  
 }
 
 class _HomePageState extends State<HomePage> {
   final JokeService _jokeService = JokeService();
   String _joke = "Presiona el botón para ver un chiste";
   bool _isLoading = false;
-
+  
   Future<void> _loadJoke() async {
     setState(() => _isLoading = true);
     try {
@@ -36,11 +38,20 @@ class _HomePageState extends State<HomePage> {
     Share.share(_joke);
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Joke Mania'),
+        title: Row(
+        mainAxisSize: MainAxisSize.min,
+          children: [
+              Image.asset('assets/joke.png', height: 32),
+              const SizedBox(width: 8),
+              const Text('Joke Mania'),
+            ],
+          ),
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),

@@ -12,7 +12,7 @@
 - Chistes por categoría (programación, oscuros, etc.)
 - API: https://v2.jokeapi.dev
 - Guardado de categoría favorita con `shared_preferences`
-- Compartir chistes con otras apps
+- Compartir chistes con otras apps usando `share_plus`
 - Navegación estructurada
 - Tema visual coherente con Material 3
 
@@ -42,5 +42,14 @@ joker_mania/
 │       └── app_theme.dart
 ├── pubspec.yaml
 ├── README.md
+---
 
+### 6. **Dependencias usadas**
+```markdown
+## 🔧 Dependencias
+
+- `http`: para consumir la API
+- `shared_preferences`: para guardar preferencias del usuario
+- `share_plus`: para compartir chistes con otras apps
+- `provider`: gestión de estado
 
