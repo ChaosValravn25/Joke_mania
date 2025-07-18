@@ -42,6 +42,7 @@ joker_mania/
 │       └── app_theme.dart
 ├── pubspec.yaml
 ├── README.md
+├── LICENSE
 ---
 
 ### 6. **Dependencias usadas**
