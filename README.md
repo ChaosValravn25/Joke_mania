@@ -46,10 +46,18 @@ joker_mania/
 
 ### 6. **Dependencias usadas**
 ```markdown
-## 🔧 Dependencias
+## Dependencias
 
 - `http`: para consumir la API
 - `shared_preferences`: para guardar preferencias del usuario
 - `share_plus`: para compartir chistes con otras apps
 - `provider`: gestión de estado
 
+## Licencia
+
+Este proyecto está licenciado bajo los términos de la licencia MIT.  
+Consulta el archivo [LICENSE](./LICENSE) para más detalles.
+
+
+## flutter version
+- Flutter 3.32.5
