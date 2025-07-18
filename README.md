@@ -43,7 +43,7 @@ joker_mania/
 ├── pubspec.yaml
 ├── README.md
 ├── LICENSE
----
+
 
 ### 6. **Dependencias usadas**
 ```markdown
