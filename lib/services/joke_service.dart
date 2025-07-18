@@ -17,7 +17,7 @@ class JokeService {
       if (data.containsKey('joke')) {// Verifica si el JSON contiene la clave 'joke'
         return data['joke'];
       } else {// Si no contiene 'joke', verifica si contiene 'setup' y 'delivery'
-        return '⚠️ No se encontró un chiste en ese idioma.';
+        return 'No se encontró un chiste en ese idioma.';
       }
     } else {// Si la respuesta no es exitosa, lanza una excepción
       throw Exception('Error al cargar el chiste');
