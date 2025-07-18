@@ -1,12 +1,12 @@
 // Widget para mostrar un chiste en un Card
 import 'package:flutter/material.dart';
 
-class JokeCard extends StatelessWidget {
+class JokeCard extends StatelessWidget {// Widget que representa un chiste
   final String joke;
   final VoidCallback onRefresh;
   final VoidCallback onShare;
 
-  const JokeCard({
+  const JokeCard({// Constructor del widget
     super.key,
     required this.joke,
     required this.onRefresh,
@@ -17,14 +17,14 @@ class JokeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 5,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),// Define el borde redondeado del Card
       margin: const EdgeInsets.all(16),
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
+            Text(// Muestra el texto del chiste
               joke,
               style: const TextStyle(fontSize: 16),
               textAlign: TextAlign.center,
@@ -32,13 +32,13 @@ class JokeCard extends StatelessWidget {
             const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
+              children: [// Botones para refrescar y compartir el chiste
                 ElevatedButton.icon(
                   onPressed: onRefresh,
                   icon: const Icon(Icons.refresh),
                   label: const Text('Nuevo'),
                 ),
-                ElevatedButton.icon(
+                ElevatedButton.icon(// Botón para compartir el chiste
                   onPressed: onShare,
                   icon: const Icon(Icons.share),
                   label: const Text('Compartir'),

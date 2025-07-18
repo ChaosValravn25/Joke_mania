@@ -10,9 +10,9 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   final PreferencesService _preferencesService = PreferencesService();
-  String? _selectedCategory;
+  String? _selectedCategory;// Categoría favorita seleccionada
 
-  final List<String> _categories = [
+  final List<String> _categories = [// Lista de categorías disponibles
     'Any', 'Programming', 'Miscellaneous', 'Dark', 'Pun', 'Spooky', 'Christmas'
   ];
 
@@ -22,14 +22,14 @@ class _SettingsPageState extends State<SettingsPage> {
     _loadCategory();
   }
 
-  void _loadCategory() async {
+  void _loadCategory() async {// Carga la categoría favorita guardada
     final saved = await _preferencesService.getCategory();
     setState(() {
       _selectedCategory = saved ?? 'Any';
     });
   }
 
-  void _saveCategory(String? value) async {
+  void _saveCategory(String? value) async {// Guarda la categoría seleccionada
     if (value != null) {
       await _preferencesService.setCategory(value);
       setState(() => _selectedCategory = value);
@@ -37,7 +37,7 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {// Construye la pantalla de configuración
     return Scaffold(
       appBar: AppBar(title: const Text('Preferencias')),
       body: ListView(
