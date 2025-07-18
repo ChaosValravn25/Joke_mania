@@ -1,10 +1,12 @@
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
+import java.util.Properties
+import java.io.FileInputStream
 
 plugins {
     id("com.android.application")
     kotlin("android")
-    id("dev.flutter.flutter-gradle-plugin") // Ojo, esta línea puede variar ligeramente en proyectos antiguos
+    id("dev.flutter.flutter-gradle-plugin")
 }
 
 android {
@@ -22,12 +24,17 @@ android {
 
     ndkVersion = "27.0.12077973"
 
+
+    val keystoreProperties = Properties().apply {
+        load(FileInputStream(rootProject.file("android/key.properties")))
+    }
+
     signingConfigs {
         create("release") {
-            storeFile = file(System.getenv("KEYSTORE_PATH") ?: rootProject.file("key.properties").parentFile.path + "/upload-keystore.jks")
-            storePassword = System.getenv("KEYSTORE_PASSWORD") ?: project.findProperty("storePassword") as String?
-            keyAlias = System.getenv("KEY_ALIAS") ?: project.findProperty("keyAlias") as String?
-            keyPassword = System.getenv("KEY_PASSWORD") ?: project.findProperty("keyPassword") as String?
+            storeFile = rootProject.file("android/upload-keystore.jks")
+            storePassword = keystoreProperties["storePassword"] as String
+            keyAlias = keystoreProperties["keyAlias"] as String
+            keyPassword = keystoreProperties["keyPassword"] as String
         }
     }
 
@@ -38,19 +45,14 @@ android {
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
-        debug {
-            // Opcional
-        }
     }
 
-   
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    
-    (this as BaseAppModuleExtension).kotlinOptions {
+    kotlinOptions {
         jvmTarget = "17"
     }
 }
@@ -58,4 +60,3 @@ android {
 flutter {
     source = "../.."
 }
-
