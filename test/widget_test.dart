@@ -8,11 +8,11 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:joke_mania/main.dart';
-import 'package:flutter/material.dart';
+
 
 void main() {
   testWidgets('La app muestra el botón para obtener chiste', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
-    expect(find.byKey(Key('refreshJokeButton')), findsOneWidget);
+    expect(find.text('Nuevo chiste'), findsOneWidget);
   });
 }

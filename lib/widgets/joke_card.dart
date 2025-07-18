@@ -32,7 +32,13 @@ class JokeCard extends StatelessWidget {// Widget que representa un chiste
             const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [// Botones para refrescar y compartir el chiste
+              children: [
+                ElevatedButton(
+                  key: Key('refreshJokeButton'),
+                  onPressed: onRefresh,
+                  child: Text('Nuevo chiste'),
+                ),
+                // Botones para refrescar y compartir el chiste
                 ElevatedButton.icon(
                   onPressed: onRefresh,
                   icon: const Icon(Icons.refresh),
@@ -43,11 +49,7 @@ class JokeCard extends StatelessWidget {// Widget que representa un chiste
                   icon: const Icon(Icons.share),
                   label: const Text('Compartir'),
                 ),
-                ElevatedButton(
-                  key: Key('refreshJokeButton'),
-                  onPressed: onRefresh,
-                  child: Text('Nuevo chiste'),
-                ),
+                
                 ],
             )
           ],
