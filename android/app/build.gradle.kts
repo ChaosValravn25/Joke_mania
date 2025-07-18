@@ -1,44 +1,61 @@
+import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
+
 plugins {
     id("com.android.application")
-    id("kotlin-android")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
-    id("dev.flutter.flutter-gradle-plugin")
+    kotlin("android")
+    id("dev.flutter.flutter-gradle-plugin") // Ojo, esta línea puede variar ligeramente en proyectos antiguos
 }
 
 android {
-    namespace = "com.example.flutter_application_laboratorio_3"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
-    }
+    namespace = "com.example.joke_mania"
+    compileSdk = 35
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.flutter_application_laboratorio_3"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        applicationId = "com.example.joke_mania"
+        minSdk = 21
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    ndkVersion = "27.0.12077973"
+
+    signingConfigs {
+        create("release") {
+            storeFile = file(System.getenv("KEYSTORE_PATH") ?: rootProject.file("key.properties").parentFile.path + "/upload-keystore.jks")
+            storePassword = System.getenv("KEYSTORE_PASSWORD") ?: project.findProperty("storePassword") as String?
+            keyAlias = System.getenv("KEY_ALIAS") ?: project.findProperty("keyAlias") as String?
+            keyPassword = System.getenv("KEY_PASSWORD") ?: project.findProperty("keyPassword") as String?
+        }
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("release")
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
+        debug {
+            // Opcional
+        }
+    }
+
+   
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    
+    (this as BaseAppModuleExtension).kotlinOptions {
+        jvmTarget = "17"
     }
 }
 
 flutter {
     source = "../.."
 }
+
