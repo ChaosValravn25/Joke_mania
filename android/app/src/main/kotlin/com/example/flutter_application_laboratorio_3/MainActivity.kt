@@ -1,4 +1,4 @@
-package com.example.flutter_application_laboratorio_3
+package com.example.joke_mania
 
 import io.flutter.embedding.android.FlutterActivity
 
