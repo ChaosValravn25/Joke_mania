@@ -45,7 +45,7 @@ joker_mania/
 ├── LICENSE
 
 
-### 6. **Dependencias usadas**
+## 6. **Dependencias usadas**
 ```markdown
 ## Dependencias
 
