@@ -43,7 +43,12 @@ class JokeCard extends StatelessWidget {// Widget que representa un chiste
                   icon: const Icon(Icons.share),
                   label: const Text('Compartir'),
                 ),
-              ],
+                ElevatedButton(
+                  key: Key('refreshJokeButton'),
+                  onPressed: onRefresh,
+                  child: Text('Nuevo chiste'),
+                ),
+                ],
             )
           ],
         ),
